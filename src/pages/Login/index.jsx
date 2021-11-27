@@ -46,7 +46,7 @@ const LoginPage = () => {
       }}
     >
       {!authHeaders ? (
-        <div style={{ color: "white" }}>Loading...</div>
+        <div style={{ color: "white" }}>Connecting to server...</div>
       ) : (
         <div style={styles.inputContainer}>
           <InputForms
