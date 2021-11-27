@@ -45,13 +45,17 @@ const LoginPage = () => {
         alignItems: "center",
       }}
     >
-      <div style={styles.inputContainer}>
-        <InputForms
-          emailInput={emailInput}
-          passwordInput={passwordInput}
-          onLogin={onLogin}
-        />
-      </div>
+      {!authHeaders ? (
+        <div style={{ color: "white" }}>Loading...</div>
+      ) : (
+        <div style={styles.inputContainer}>
+          <InputForms
+            emailInput={emailInput}
+            passwordInput={passwordInput}
+            onLogin={onLogin}
+          />
+        </div>
+      )}
     </div>
   );
 };

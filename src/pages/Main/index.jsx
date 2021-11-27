@@ -4,21 +4,11 @@ import { useSessionContext } from "../../context/SessionContext";
 import { useLoggedInContext } from "../../context/LoggedInContext";
 import MeetingRoomIcon from "@mui/icons-material/MeetingRoom";
 import { useHistory } from "react-router-dom";
+import FileSaver from "file-saver";
 
 function download(filename, content) {
-  var element = document.createElement("a");
-  element.setAttribute(
-    "href",
-    "data:text/plain;charset=utf-8," + encodeURIComponent(content)
-  );
-  element.setAttribute("download", filename);
-
-  element.style.display = "none";
-  document.body.appendChild(element);
-
-  element.click();
-
-  document.body.removeChild(element);
+  const blob = new Blob([content], { type: "text/plain;charset=utf-8" });
+  FileSaver.saveAs(blob, filename);
 }
 
 const MainPage = () => {
